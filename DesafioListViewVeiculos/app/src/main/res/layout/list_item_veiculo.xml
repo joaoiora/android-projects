@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/iconVeiculo"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/iconDescription"
+        android:padding="5dp" />
+
+    <Space
+        android:id="@+id/space1"
+        android:layout_width="15dp"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/textViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/viewModelo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/modelo"
+            android:paddingTop="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/viewCor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cor" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.joao.desafiolistviewveiculos.activities.DetailVeiculoActivity">
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="503dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Space
+            android:id="@+id/space1"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <ImageView
+            android:id="@+id/iconeVeiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="false"
+            android:contentDescription="@string/iconDescription"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <Space
+            android:id="@+id/space2"
+            android:layout_width="match_parent"
+            android:layout_height="25dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/labelModelo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textModelo"
+                android:layout_alignStart="@+id/labelCor"
+                android:text="@string/modelo"
+                android:textAlignment="textEnd"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textModelo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/textCor"
+                android:layout_marginTop="15dp"
+                android:text="@string/placeholder" />
+
+            <TextView
+                android:id="@+id/labelCor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/labelAno"
+                android:layout_below="@+id/labelModelo"
+                android:layout_marginTop="10dp"
+                android:text="@string/cor"
+                android:textAlignment="textEnd"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textCor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textAno"
+                android:layout_alignTop="@+id/labelCor"
+                android:text="@string/placeholder" />
+
+            <TextView
+                android:id="@+id/labelAno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/labelQuilometragem"
+                android:layout_below="@+id/labelCor"
+                android:layout_marginTop="10dp"
+                android:text="@string/ano"
+                android:textAlignment="textEnd"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textAno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/labelAno"
+                android:layout_alignBottom="@+id/labelAno"
+                android:layout_alignStart="@+id/textQuilometragem"
+                android:text="@string/placeholder" />
+
+            <TextView
+                android:id="@+id/labelQuilometragem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textAno"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/quilometragem"
+                android:textAlignment="textStart"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textQuilometragem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/labelQuilometragem"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/labelQuilometragem"
+                android:text="@string/placeholder" />
+
+            <TextView
+                android:id="@+id/labelValor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/labelQuilometragem"
+                android:layout_below="@+id/textQuilometragem"
+                android:layout_marginTop="10dp"
+                android:text="@string/valor"
+                android:textAlignment="textEnd"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textValor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/labelValor"
+                android:layout_alignStart="@+id/textQuilometragem"
+                android:text="@string/placeholder" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="88dp"
+                android:text="@string/compartilhar"
+                android:onClick="compartilhar"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="17dp"
+                android:text="@string/abrir_mapa"
+                android:onClick="abrirMapa"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

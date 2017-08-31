@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Desafio List View</string>
+    <string name="modelo">Modelo</string>
+    <string name="cor">Cor</string>
+    <string name="ano">Ano</string>
+    <string name="quilometragem">Quilometragem</string>
+    <string name="valor">Valor</string>
+    <string name="iconDescription">Ícone do Carro</string>
+</resources>

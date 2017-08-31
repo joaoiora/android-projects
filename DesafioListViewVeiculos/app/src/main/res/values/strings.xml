@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">List View Challenge</string>
+    <string name="modelo">Model</string>
+    <string name="cor">Color</string>
+    <string name="ano">Year</string>
+    <string name="quilometragem">Mileage</string>
+    <string name="valor">Value</string>
+    <string name="iconDescription">Car Icon</string>
+    <string name="placeholder">Texto Vazio</string>
+    <string name="clica">Clica ai</string>
+    <string name="compartilhar">Compartilhar</string>
+    <string name="abrir_mapa">Abrir Mapa</string>
+</resources>

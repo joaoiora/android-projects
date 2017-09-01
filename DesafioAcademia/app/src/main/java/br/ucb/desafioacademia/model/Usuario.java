@@ -3,6 +3,8 @@ package br.ucb.desafioacademia.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import br.ucb.desafioacademia.utils.StringUtils;
+
 /**
  * Created by João Carlos Iora on 31/08/17.
  */
@@ -101,16 +103,41 @@ public class Usuario implements Parcelable {
     }
 
     /**
-     *
      * @return
      */
     @Override
     public String toString() {
-        return "Usuario[" + codigo + "]\n";
+        StringBuilder sb = new StringBuilder();
+        sb.append("===== DADOS DO USUÁRIO =====\n");
+        sb.append("\tNome: " + nome + "\n");
+        sb.append("\tUsuário: " + codigo + "\n");
+        sb.append("\tTelefone: " + getTelefoneComMascara() + "\n");
+        sb.append("\tE-mail: " + email + "\n");
+        sb.append("============================\n");
+        return sb.toString();
     }
 
     /**
-     *
+     * @param telefone
+     * @return
+     */
+    private String aplicarMascara(String telefone) {
+        if (StringUtils.isNotEmpty(telefone)) {
+            StringBuilder sb = new StringBuilder();
+            int len = telefone.length();
+            if (len == 10 || len == 11) {
+                sb.append("(").append(telefone.substring(0, 2)).append(")");
+                sb.append(" ").append(telefone.substring(2, 6)).append("-");
+                sb.append(telefone.substring(6));
+            } else if (len == 8 || len == 9) {
+                sb.append(telefone.substring(0, 4)).append("-").append(telefone.substring(4));
+            }
+            return sb.toString();
+        }
+        return "";
+    }
+
+    /**
      * @param o
      * @return
      */
@@ -127,7 +154,6 @@ public class Usuario implements Parcelable {
     }
 
     /**
-     *
      * @return
      */
     @Override
@@ -161,6 +187,10 @@ public class Usuario implements Parcelable {
 
     public String getTelefone() {
         return telefone;
+    }
+
+    public String getTelefoneComMascara() {
+        return aplicarMascara(telefone);
     }
 
     public void setTelefone(String telefone) {

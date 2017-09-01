@@ -103,4 +103,5 @@ public class DetailVeiculoActivity extends Activity {
         intent.setPackage("com.google.android.apps.maps");
         startActivity(intent);
     }
+
 }

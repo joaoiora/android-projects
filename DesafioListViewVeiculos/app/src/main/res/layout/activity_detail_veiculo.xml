@@ -15,8 +15,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -152,11 +152,11 @@
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="88dp"
-                android:text="@string/compartilhar"
-                android:onClick="compartilhar"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="88dp"
+                android:onClick="compartilhar"
+                android:text="@string/compartilhar" />
 
             <Button
                 android:id="@+id/button2"
@@ -165,8 +165,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="17dp"
-                android:text="@string/abrir_mapa"
-                android:onClick="abrirMapa"/>
+                android:onClick="abrirMapa"
+                android:text="@string/abrir_mapa" />
 
         </RelativeLayout>
 

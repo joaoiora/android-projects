@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Academia</string>
+    <string name="usuario">Usuário</string>
+    <string name="password">Senha</string>
+    <string name="login">Login</string>
+    <string name="erro_login">Usuário e/ou senha inválidos</string>
+    <string name="dados_pessoais">Dados Pessoais</string>
+    <string name="dias_treino">Dias de Treino</string>
+    <string name="usuario_online">Usuário Online:</string>
+    <string name="empty_text">Texto Vazio</string>
+    <string name="nome">Nome:</string>
+    <string name="telefone">Telefone:</string>
+    <string name="email">E-mail:</string>
+    <string name="compartilhar">Compartilhar</string>
+    <string name="dia_semana">Dia:</string>
+    <string name="membro">Membros:</string>
+    <string name="nome_treino">Treino:</string>
+</resources>

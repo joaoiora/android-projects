@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,6 +21,8 @@ public class ProdutoView extends RelativeLayout {
     private TextView textNome;
 
     private TextView textTipo;
+
+    private CheckBox checkBox;
 
     public ProdutoView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -45,10 +48,10 @@ public class ProdutoView extends RelativeLayout {
     }
 
     private void setupChildren() {
-        textNome = (TextView) findViewById(R.id.textNome);
-        textTipo = (TextView) findViewById(R.id.textTipo);
+        textNome = (TextView) findViewById(R.id.text_nome);
+        textTipo = (TextView) findViewById(R.id.text_tipo);
+        checkBox = (CheckBox) findViewById(R.id.check_box);
     }
-
 
     public TextView getTextNome() {
         return textNome;
@@ -57,4 +60,9 @@ public class ProdutoView extends RelativeLayout {
     public TextView getTextTipo() {
         return textTipo;
     }
+
+    public CheckBox getCheckBox() {
+        return checkBox;
+    }
+
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 
 import java.util.List;
 
@@ -22,6 +23,10 @@ public class ProdutoAdapter extends ArrayAdapter<Produto> {
         super(context, resource, produtos);
     }
 
+    public ProdutoAdapter(Context context, int resource, int text, List<Produto> produtos) {
+        super(context, resource, text, produtos);
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ProdutoView produtoView = (ProdutoView) convertView;
@@ -29,8 +34,19 @@ public class ProdutoAdapter extends ArrayAdapter<Produto> {
             produtoView = ProdutoView.inflate(parent);
         }
         produtoView.setProduto(getItem(position));
+        produtoView.setTag(produtoView.getCheckBox());
+//        produtoView.setOnClickListener(onClickListener);
         return produtoView;
-
     }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            CheckBox checkBox = (CheckBox) view.getTag();
+            checkBox.setChecked(!checkBox.isChecked());
+        }
+
+    };
 
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<br.ucb.listviewpersonalizada.activities.ProdutoView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="5dp">
+<br.ucb.listviewpersonalizada.views.ProdutoView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:padding="5dp">
 
-</br.ucb.listviewpersonalizada.activities.ProdutoView>
+</br.ucb.listviewpersonalizada.views.ProdutoView>

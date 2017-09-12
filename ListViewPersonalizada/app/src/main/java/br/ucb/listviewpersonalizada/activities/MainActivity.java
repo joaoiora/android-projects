@@ -3,7 +3,6 @@ package br.ucb.listviewpersonalizada.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -14,17 +13,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ucb.listviewpersonalizada.R;
+import br.ucb.listviewpersonalizada.adapters.ProdutoAdapter;
 import br.ucb.listviewpersonalizada.model.Produto;
 
 /**
- * Created by João Carlos Iora on 06/09/2017.
+ * Created by João Carlos Iora on 06/09/2017
  */
 public class MainActivity extends Activity {
 
+    /**
+     *
+     */
     private ListView listViewProdutos;
 
+    /**
+     *
+     */
     private Button shareButton;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +41,10 @@ public class MainActivity extends Activity {
         setupChildren();
     }
 
+    /**
+     * Obtém todos os elementos da tela principal, associa <i>listeners</i> aos componentes
+     * e regula visibilidade dos demais componentes.
+     */
     private void setupChildren() {
         shareButton = (Button) findViewById(R.id.share_button);
         listViewProdutos = (ListView) findViewById(R.id.listview_produto);
@@ -42,17 +55,21 @@ public class MainActivity extends Activity {
         listViewProdutos.setOnItemClickListener(onItemClickListener);
     }
 
-    private View.OnClickListener onShareButtonClick = new View.OnClickListener() {
+    /**
+     * Listener para clique do botão {@link #shareButton}.
+     */
+    private final View.OnClickListener onShareButtonClick = new View.OnClickListener() {
 
         @Override
         public void onClick(View view) {
-            SparseBooleanArray items = listViewProdutos.getCheckedItemPositions();
-            StringBuilder produtos = new StringBuilder();
-            for (int i = 0; i < listViewProdutos.getAdapter().getCount(); i++) {
-                if (items.get(i)) {
-                    produtos.append(getProdutos().get(i));
+            int count = listViewProdutos.getCount();
+            StringBuilder produtos = new StringBuilder("=== Produtos Selecionados ===\n");
+            for (int position = 0; position < count; position++) {
+                if (listViewProdutos.isItemChecked(position)) {
+                    produtos.append("> ").append(listViewProdutos.getItemAtPosition(position)).append("\n");
                 }
             }
+            produtos.append("=========================");
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_TEXT, produtos.toString());
@@ -61,8 +78,14 @@ public class MainActivity extends Activity {
 
     };
 
-    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+    /**
+     * Listener de clique para um item da List View.
+     */
+    private final AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             CheckBox checkBox = (CheckBox) view.getTag();
@@ -72,6 +95,9 @@ public class MainActivity extends Activity {
 
     };
 
+    /**
+     * @return Lista contendo vários objetos do tipo {@link Produto} para serem listados.
+     */
     private List<Produto> getProdutos() {
         List<Produto> produtos = new ArrayList<>();
         if (produtos.isEmpty()) {

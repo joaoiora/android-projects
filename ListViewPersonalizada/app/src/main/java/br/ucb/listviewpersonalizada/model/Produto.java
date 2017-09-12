@@ -4,41 +4,47 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by João Carlos Iora on 06/09/17.
+ * Representação singela de um produto.
+ * <p>
+ * Created by João Carlos Iora on 06/09/17
  */
 public class Produto implements Parcelable {
 
-    private String nome;
+    /**
+     * Nome para um produto qualquer.
+     */
+    private final String nome;
 
-    private String tipo;
+    /**
+     * Descrição simples do tipo de produto.
+     */
+    private final String tipo;
 
-    public Produto() {
-
-    }
-
+    /**
+     * Construtor básico para um Produto.
+     *
+     * @param nome Nome do Produto
+     * @param tipo Tipo do Produto
+     */
     public Produto(String nome, String tipo) {
         this.nome = nome;
         this.tipo = tipo;
     }
 
-    private Produto(Parcel in) {
-        nome = in.readString();
-        tipo = in.readString();
-    }
-
     /**
-     *
-     * @return
+     * {@inheritDoc}
      */
-    @Override
-    public int describeContents() {
-        return 0;
+    private Produto(Parcel source) {
+        nome = source.readString();
+        tipo = source.readString();
     }
 
     /**
+     * Flatten this object in to a Parcel.
      *
-     * @param dest
-     * @param flags
+     * @param dest  The Parcel in which the object should be written.
+     * @param flags Additional flags about how the object should be written.
+     *              May be 0 or {@link #PARCELABLE_WRITE_RETURN_VALUE}.
      */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
@@ -49,19 +55,15 @@ public class Produto implements Parcelable {
     public static final Creator<Produto> CREATOR = new Creator<Produto>() {
 
         /**
-         *
-         * @param in
-         * @return
+         * {@inheritDoc}
          */
         @Override
-        public Produto createFromParcel(Parcel in) {
-            return new Produto(in);
+        public Produto createFromParcel(Parcel source) {
+            return new Produto(source);
         }
 
         /**
-         *
-         * @param size
-         * @return
+         * {@inheritDoc}
          */
         @Override
         public Produto[] newArray(int size) {
@@ -70,22 +72,31 @@ public class Produto implements Parcelable {
     };
 
     /**
+     * Describe the kinds of special objects contained in this Parcelable
+     * instance's marshaled representation. For example, if the object will
+     * include a file descriptor in the output of {@link #writeToParcel(Parcel, int)},
+     * the return value of this method must include the
+     * {@link #CONTENTS_FILE_DESCRIPTOR} bit.
      *
-     * @return
+     * @return a bitmask indicating the set of special object types marshaled
+     * by this Parcelable object instance.
+     * @see #CONTENTS_FILE_DESCRIPTOR
      */
     @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Encontrei um " + tipo + " para você.\n");
-        sb.append("É um " + nome + " de altíssima qualidade.\n");
-        sb.append("Clique no link para mais informações: https://www.ucb.br\n");
-        return sb.toString();
+    public int describeContents() {
+        return 0;
     }
 
     /**
-     *
-     * @param o
-     * @return
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return nome;
+    }
+
+    /**
+     * {@inheritDoc}
      */
     @Override
     public boolean equals(Object o) {
@@ -100,8 +111,7 @@ public class Produto implements Parcelable {
     }
 
     /**
-     *
-     * @return
+     * {@inheritDoc}
      */
     @Override
     public int hashCode() {
@@ -110,20 +120,18 @@ public class Produto implements Parcelable {
         return result;
     }
 
+    /**
+     * @return Nome do Produto
+     */
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
+    /**
+     * @return Tipo do Produto
+     */
     public String getTipo() {
         return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
 }

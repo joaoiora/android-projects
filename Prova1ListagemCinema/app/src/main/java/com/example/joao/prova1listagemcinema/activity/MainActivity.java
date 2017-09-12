@@ -12,12 +12,19 @@ import com.example.joao.prova1listagemcinema.model.Filme;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Joao on 12/09/2017.
+ */
 public class MainActivity extends Activity {
 
+    /**
+     * Chave para representar qual Filme foi selecionado pelo usuário ao pressionar o botão 'Detalhar'.
+     */
     public static final String KEY_SELECTED_FILME = "KEY_SELECTED_FILME";
 
-    private GridView gridView;
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +32,23 @@ public class MainActivity extends Activity {
         setupChildren();
     }
 
+    /**
+     * Carrega todos os componentes visuais filhos da tela e realiza o <i>bind</i> de seus elementos
+     * e propriedades.
+     */
     private void setupChildren() {
-        gridView = (GridView) findViewById(R.id.main_grid);
+        GridView gridView = (GridView) findViewById(R.id.main_grid);
         gridView.setAdapter(new FilmeAdapter(this, getFilmes()));
     }
 
+    /**
+     * É criado um objeto filme e seu respectivo elenco. Não foi feito um tratamento de string correto
+     * para a sinopse.
+     * O elenco de cada filme é carregado separadamente. Em um ambiente de produção, o elenco seria carregado
+     * de acordo com o relacionamento entre o Filme (1) e seus Atores (n).
+     *
+     * @return Lista de filmes.
+     */
     private List<Filme> getFilmes() {
         List<Filme> filmes = new ArrayList<>();
         // Polícia Federal - A Lei É para Todos
@@ -60,6 +79,9 @@ public class MainActivity extends Activity {
         return filmes;
     }
 
+    /**
+     * @return Lista contendo o elenco de atores do filme Annabelle 2.
+     */
     private List<Ator> getElencoAnnabelle() {
         List<Ator> elenco = new ArrayList<>();
         elenco.add(new Ator(R.drawable.steph_sigman, "Stephanie Sigman"));
@@ -68,6 +90,9 @@ public class MainActivity extends Activity {
         return elenco;
     }
 
+    /**
+     * @return Lista contendo o elenco de atores do filme Atômica.
+     */
     private List<Ator> getElencoAtomica() {
         List<Ator> elenco = new ArrayList<>();
         elenco.add(new Ator(R.drawable.charlize, "Charlize Theron"));
@@ -76,6 +101,9 @@ public class MainActivity extends Activity {
         return elenco;
     }
 
+    /**
+     * @return Lista contendo o elenco de atores do filme A Torre Negra.
+     */
     private List<Ator> getElencoTorreNegra() {
         List<Ator> elenco = new ArrayList<>();
         elenco.add(new Ator(R.drawable.idriselba, "Idris Elba"));
@@ -84,6 +112,9 @@ public class MainActivity extends Activity {
         return elenco;
     }
 
+    /**
+     * @return Lista contendo o elenco de atores do filme It - A Coisa.
+     */
     private List<Ator> getElencoIt() {
         List<Ator> elenco = new ArrayList<>();
         elenco.add(new Ator(R.drawable.skarsgard, "Bill Skarsgard"));
@@ -92,6 +123,9 @@ public class MainActivity extends Activity {
         return elenco;
     }
 
+    /**
+     * @return Lista contendo o elenco de atores do filme Polícia Federal - A Lei É Para Todos.
+     */
     private List<Ator> getElencoPF() {
         List<Ator> elenco = new ArrayList<>();
         elenco.add(new Ator(R.drawable.calloni, "Antonio Calloni"));

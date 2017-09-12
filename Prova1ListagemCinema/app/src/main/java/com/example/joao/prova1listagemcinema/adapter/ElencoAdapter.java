@@ -1,6 +1,7 @@
 package com.example.joao.prova1listagemcinema.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -16,17 +17,19 @@ import java.util.List;
  */
 public class ElencoAdapter extends ArrayAdapter<Ator> {
 
-
-    public ElencoAdapter(Context context, List<Ator> elenco) {
-        super(context, 0, elenco);
-    }
-
+    /**
+     * {@inheritDoc}
+     */
     public ElencoAdapter(Context context, int resource, List<Ator> elenco) {
         super(context, resource, elenco);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         ElencoView elencoView = (ElencoView) convertView;
         if (elencoView == null) {
             elencoView = ElencoView.inflate(parent);

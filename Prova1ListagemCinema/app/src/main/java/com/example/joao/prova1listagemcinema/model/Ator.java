@@ -6,58 +6,84 @@ import android.os.Parcelable;
 /**
  * Created by Joao on 12/09/2017.
  */
-
 public class Ator implements Parcelable {
 
-    private int imageId;
+    /**
+     *
+     */
+    private final int imageId;
 
-    private String nome;
+    /**
+     *
+     */
+    private final String nome;
 
-    public Ator() {
-
-    }
-
+    /**
+     * Construtor padrão para um Ator.
+     *
+     * @param imageId Identificador para a foto do ator.
+     * @param nome Nome do ator.
+     */
     public Ator(int imageId, String nome) {
         this.imageId = imageId;
         this.nome = nome;
     }
 
-    private Ator(Parcel in) {
-        imageId = in.readInt();
-        nome = in.readString();
+    /**
+     * {@inheritDoc}
+     */
+    private Ator(Parcel source) {
+        imageId = source.readInt();
+        nome = source.readString();
     }
 
     public static final Creator<Ator> CREATOR = new Creator<Ator>() {
+
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public Ator createFromParcel(Parcel in) {
             return new Ator(in);
         }
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public Ator[] newArray(int size) {
             return new Ator[size];
         }
+
     };
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Nome do Ator: " + nome + "\n");
-        return sb.toString();
+        return nome;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Ator ator = (Ator) o;
-
-        if (imageId != ator.imageId) return false;
-        return nome.equals(ator.nome);
+        return imageId == ator.imageId && nome.equals(ator.nome);
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int hashCode() {
         int result = imageId;
@@ -65,11 +91,17 @@ public class Ator implements Parcelable {
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int describeContents() {
         return 0;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(imageId);
@@ -80,15 +112,8 @@ public class Ator implements Parcelable {
         return imageId;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
-    }
-
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 }

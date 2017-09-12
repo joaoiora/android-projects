@@ -2,6 +2,7 @@ package com.example.joao.prova1listagemcinema.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,21 +23,27 @@ import java.util.List;
  */
 public class FilmeAdapter extends ArrayAdapter<Filme> {
 
-    private Context context;
+    /**
+     * Contexto que está utilizando este Adapter.
+     */
+    private final Context context;
 
+    /**
+     * {@inheritDoc}
+     */
     public FilmeAdapter(Context context, List<Filme> filmes) {
         super(context, 0, filmes);
         this.context = context;
     }
 
-    public FilmeAdapter(Context context, int resource, List<Filme> filmes) {
-        super(context, resource, filmes);
-        this.context = context;
-    }
-
+    /**
+     * {@inheritDoc}
+     */
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View row = null;
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        // TODO mover lógica abaixo para a classe FilmeView.
+        View row;
         if (convertView == null) {
             row = LayoutInflater.from(getContext()).inflate(R.layout.row_grid, parent, false);
         } else {
@@ -54,8 +61,10 @@ public class FilmeAdapter extends ArrayAdapter<Filme> {
                 context.startActivity(intent);
             }
         });
-        gridImage.setImageResource(filme.getImageId());
-        gridGenero.setText(filme.getGenero());
+        if (filme != null) {
+            gridImage.setImageResource(filme.getImageId());
+            gridGenero.setText(filme.getGenero());
+        }
         return row;
     }
 

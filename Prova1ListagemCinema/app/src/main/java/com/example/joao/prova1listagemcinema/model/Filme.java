@@ -11,18 +11,45 @@ import java.util.List;
  */
 public class Filme implements Parcelable {
 
-    private int imageId;
+    /**
+     *
+     */
+    private final int imageId;
 
-    private String nomeDiretor;
+    /**
+     *
+     */
+    private final String nomeDiretor;
 
-    private String genero;
+    /**
+     *
+     */
+    private final String genero;
 
-    private String nacionalidade;
+    /**
+     *
+     */
+    private final String nacionalidade;
 
-    private String sinopse;
+    /**
+     *
+     */
+    private final String sinopse;
 
+    /**
+     *
+     */
     private List<Ator> elenco;
 
+    /**
+     * Construtor padrão para um Filme.
+     *
+     * @param imageId       Identificador da capa do filme
+     * @param nomeDiretor   Nome do Diretor
+     * @param genero        Gênero do filme
+     * @param nacionalidade Nacionalidade do filme
+     * @param sinopse       Breve descrição do enredo do filme
+     */
     public Filme(int imageId, String nomeDiretor, String genero, String nacionalidade, String sinopse) {
         this.imageId = imageId;
         this.nomeDiretor = nomeDiretor;
@@ -31,34 +58,52 @@ public class Filme implements Parcelable {
         this.sinopse = sinopse;
     }
 
-    private Filme(Parcel in) {
-        imageId = in.readInt();
-        nomeDiretor = in.readString();
-        genero = in.readString();
-        nacionalidade = in.readString();
-        sinopse = in.readString();
+    /**
+     *
+     */
+    private Filme(Parcel source) {
+        imageId = source.readInt();
+        nomeDiretor = source.readString();
+        genero = source.readString();
+        nacionalidade = source.readString();
+        sinopse = source.readString();
         elenco = new ArrayList<>();
-        in.readTypedList(elenco, Ator.CREATOR);
+        source.readTypedList(elenco, Ator.CREATOR);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public static final Creator<Filme> CREATOR = new Creator<Filme>() {
+
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public Filme createFromParcel(Parcel in) {
             return new Filme(in);
         }
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public Filme[] newArray(int size) {
             return new Filme[size];
         }
     };
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int describeContents() {
         return 0;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(imageId);
@@ -69,44 +114,59 @@ public class Filme implements Parcelable {
         dest.writeTypedList(elenco);
     }
 
-    public int getImageId() {
-        return imageId;
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Filme filme = (Filme) o;
+
+        if (imageId != filme.imageId) {
+            return false;
+        }
+        if (!nomeDiretor.equals(filme.nomeDiretor)) {
+            return false;
+        }
+        return genero != null ? genero.equals(filme.genero) : filme.genero == null;
+
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        int result = imageId;
+        result = 31 * result + nomeDiretor.hashCode();
+        result = 31 * result + (genero != null ? genero.hashCode() : 0);
+        return result;
+    }
+
+    public int getImageId() {
+        return imageId;
     }
 
     public String getNomeDiretor() {
         return nomeDiretor;
     }
 
-    public void setNomeDiretor(String nomeDiretor) {
-        this.nomeDiretor = nomeDiretor;
-    }
-
     public String getGenero() {
         return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
     }
 
     public String getNacionalidade() {
         return nacionalidade;
     }
 
-    public void setNacionalidade(String nacionalidade) {
-        this.nacionalidade = nacionalidade;
-    }
-
     public String getSinopse() {
         return sinopse;
-    }
-
-    public void setSinopse(String sinopse) {
-        this.sinopse = sinopse;
     }
 
     public List<Ator> getElenco() {

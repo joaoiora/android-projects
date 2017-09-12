@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Prova1ListagemCinema</string>
+    <string name="nome">Nome</string>
+    <string name="placeholder">Texto Vazio</string>
+    <string name="detail">Detalhar</string>
+    <string name="genero">Gênero:</string>
+    <string name="label_diretor">Direção:</string>
+    <string name="label_nacionalidade">Nacionalidade:</string>
+    <string name="label_genero">Gênero</string>
+    <string name="label_sinopse">Sinopse:</string>
+    <string name="elenco">Elenco</string>
+    <string name="share">Compartilhar</string>
+</resources>

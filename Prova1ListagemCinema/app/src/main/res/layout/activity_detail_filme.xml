@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.joao.prova1listagemcinema.activity.DetailFilmeActivity">
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="366dp"
+        android:layout_height="498dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imagem_filme"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/placeholder"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/label_direcao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/imagem_filme"
+            android:layout_toEndOf="@+id/imagem_filme"
+            android:text="@string/label_diretor"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_direcao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/label_direcao"
+            android:layout_below="@+id/label_direcao"
+            android:text="@string/placeholder" />
+
+        <TextView
+            android:id="@+id/label_genero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_direcao"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/imagem_filme"
+            android:text="@string/label_genero"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_genero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_genero"
+            android:layout_toEndOf="@+id/imagem_filme"
+            android:text="@string/placeholder" />
+
+        <TextView
+            android:id="@+id/label_nacionalidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_genero"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@+id/imagem_filme"
+            android:text="@string/label_nacionalidade"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_nacionalidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label_nacionalidade"
+            android:layout_toEndOf="@+id/imagem_filme"
+            android:text="@string/placeholder" />
+
+        <TextView
+            android:id="@+id/label_sinopse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imagem_filme"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="40dp"
+            android:text="@string/label_sinopse"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="175dp" />
+
+        <TextView
+            android:id="@+id/text_sinopse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/label_sinopse"
+            android:layout_below="@+id/label_sinopse"
+            android:layout_marginTop="23dp"
+            android:lines="10"
+            android:maxLines="10"
+            android:text="@string/placeholder"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="232dp" />
+
+        <Button
+            android:id="@+id/button_detail_elenco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/elenco"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

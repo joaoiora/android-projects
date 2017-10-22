@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Empréstimos</string>
+    <string name="nome">NomeObjeto</string>
+    <string name="emprestar">Emprestar</string>
+    <string name="emprestei">Emprestei Para</string>
+    <string name="placeholder">Texto Vazio</string>
+    <string name="nome_objeto">Objeto do Emprestimo</string>
+    <string name="na_data">Na Data</string>
+    <string name="data_prevista">Data Prevista Para Devolução</string>
+    <string name="cobrar">Cobrar</string>
+    <string name="devolver">Devolver</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="msg_erro_individuo">Informe para quem emprestou o objeto.</string>
+    <string name="msg_erro_objeto">Informe o objeto que foi emprestado.</string>
+    <string name="msg_erro_data_emp">Informe a data que emprestou o objeto.</string>
+    <string name="msg_erro_data_devol">Informe a data de devolução do objeto.</string>
+</resources>

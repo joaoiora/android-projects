@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DesafioCotacao</string>
+    <string name="task_title">Aguarde</string>
+    <string name="task_message">Obtendo cotação...</string>
+    <string name="dolar">Dólar</string>
+    <string name="euro">Euro</string>
+    <string name="peso_arg">Peso Argentino</string>
+    <string name="bitcoin">Bitcoin</string>
+    <string name="placeholder">Texto Vazio</string>
+</resources>
